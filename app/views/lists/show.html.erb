@@ -1,0 +1,24 @@
+<div style="background-image: url(<%=list.%>)">
+  <h2>Movie list: <strong><%=@list.name.capitalize%></strong> </h2>
+</div>
+
+<ul>
+  <% @list.bookmarks.each do |bookmark| %>
+    <div style="background-image: url(<%=bookmark.movie.poster_url%>)">
+      <li>
+        <%= "#{bookmark.movie.title} | #{bookmark.movie.rating}⭐ | " %>
+        <%= link_to 'Delete movie', bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+ %>
+        <p><%= bookmark.movie.overview %></p>
+      </li>
+    </div>
+  <% end %>
+</ul>
+
+<h5>
+  <%= link_to 'Add a movie', new_list_bookmark_path(@list) %>
+</h5>
+
+<h6>
+  <%= link_to '<< Back to movie lists', lists_path %>
+</h6>

@@ -1,0 +1,9 @@
+<h2> Here are your movie lists... </h2>
+
+<ul>
+  <% @lists.each do |list| %>
+    <li> <%= link_to list.name.capitalize, list %> </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add new movie list', new_list_path %>
