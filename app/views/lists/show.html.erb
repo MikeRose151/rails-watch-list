@@ -1,4 +1,4 @@
-<div style="background-image: url(<%=list.%>)">
+<div>
   <h2>Movie list: <strong><%=@list.name.capitalize%></strong> </h2>
 </div>
 
@@ -7,8 +7,7 @@
     <div style="background-image: url(<%=bookmark.movie.poster_url%>)">
       <li>
         <%= "#{bookmark.movie.title} | #{bookmark.movie.rating}⭐ | " %>
-        <%= link_to 'Delete movie', bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
- %>
+        <%= link_to 'Delete movie', bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
         <p><%= bookmark.movie.overview %></p>
       </li>
     </div>
